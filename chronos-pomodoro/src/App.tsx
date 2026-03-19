@@ -2,6 +2,7 @@ import './styles/theme.css';
 import './styles/global.css';
 
 import { HomePage } from './pages/HomePage';
+import { TaskContext } from './contexts/TaskContext';
 // import { useState } from 'react';
 // import type { TaskStateModel } from './models/TaskStateModel';
 
@@ -22,6 +23,8 @@ export function App() {
     // const [appState, setAppState] = useState(initialAppState);
 
     return (
-        <HomePage />
+        <TaskContext.Provider value={{ key: 'test' }}>
+            <HomePage />
+        </TaskContext.Provider>
     );
 }
