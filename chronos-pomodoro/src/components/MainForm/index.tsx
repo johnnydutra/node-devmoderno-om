@@ -2,12 +2,25 @@ import { PlayCircleIcon } from "lucide-react";
 import { ActionButton } from "../ActionButton";
 import { Cycles } from "../Cycles";
 import { InputField } from "../InputField";
+import { useRef } from "react";
 
 export function MainForm() {
-        return (
-        <form action="" className="form">
+    const taskNameInput = useRef<HTMLInputElement>(null)
+
+    function handleCreateTask(event: React.SubmitEvent<HTMLFormElement>) {
+        event.preventDefault();
+    }
+
+    return (
+        <form onSubmit={handleCreateTask} action="" className="form">
             <div className="formRow">
-                <InputField id='input' type='text' label='Tarefa' placeholder='Digite algo aqui'/>
+                <InputField 
+                id='input' 
+                type='text' 
+                label='Tarefa' 
+                placeholder='Digite o nome da tarefa'
+                ref={taskNameInput}
+                />
             </div>
 
             <div className="formRow">
