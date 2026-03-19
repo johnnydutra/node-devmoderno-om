@@ -1,8 +1,7 @@
-import type { HomePageProps } from '../../pages/HomePage';
 import styles from './styles.module.css';
 
-export function Countdown({ appState }: HomePageProps) {
+export function Countdown() {
     return (
-        <div className={styles.container}>{appState.formattedSecondsRemaining}</div>
+        <div className={styles.container}>12:34</div>
     );
 }
