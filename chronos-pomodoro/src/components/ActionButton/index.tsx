@@ -5,7 +5,7 @@ type ButtonProps = {
     color?: 'green' | 'red';
 } & React.ComponentProps<'button'>;
 
-export function Button({ icon, color = 'green', ...props }: ButtonProps) {
+export function ActionButton({ icon, color = 'green', ...props }: ButtonProps) {
     return (
         <>
             <button className={`${styles.button} ${styles[color]}`} {...props}>
