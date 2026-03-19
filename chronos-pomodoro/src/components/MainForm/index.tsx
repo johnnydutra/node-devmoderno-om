@@ -4,7 +4,7 @@ import { Cycles } from "../Cycles";
 import { InputField } from "../InputField";
 
 export function MainForm() {
-    return (
+        return (
         <form action="" className="form">
             <div className="formRow">
                 <InputField id='input' type='text' label='Tarefa' placeholder='Digite algo aqui'/>
