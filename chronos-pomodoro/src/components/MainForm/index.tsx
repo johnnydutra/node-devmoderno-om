@@ -69,9 +69,11 @@ export function MainForm() {
                 <p>Próximo intervalo é de 25min</p>
             </div>
             
+            {state.currentCycle > 0 && (
             <div className="formRow">
                 <Cycles />
             </div>
+            )}
                     
             <div className="formRow">
                 <ActionButton icon={<PlayCircleIcon />} color='green' />

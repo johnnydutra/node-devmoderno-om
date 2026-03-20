@@ -22,10 +22,10 @@
     background-color: var(--warning);
 }
 
-.shortBreakTime {
+.shortBreak {
     background-color: var(--primary);
 }
 
-.longBreakTime {
+.longBreak {
     background-color: var(--info);
 }
