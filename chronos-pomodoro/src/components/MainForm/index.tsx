@@ -1,4 +1,4 @@
-import { PlayCircleIcon } from "lucide-react";
+import { PlayCircleIcon, StopCircleIcon } from "lucide-react";
 import { ActionButton } from "../ActionButton";
 import { Cycles } from "../Cycles";
 import { InputField } from "../InputField";
@@ -53,6 +53,24 @@ export function MainForm() {
         }) 
     }
 
+    function handleInterruptTask(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+        event.preventDefault();
+        setState(currentState => {
+            return {
+                ...currentState,
+                activeTask: null,
+                secondsRemaining: 0,
+                formattedSecondsRemaining: '00:00',
+                tasks: currentState.tasks.map((task) => {
+                    if (currentState.activeTask?.id === task.id) {
+                        return { ...task, interruptDate: Date.now() }
+                    }
+                    return task;
+            }),
+            }
+        })
+    }
+
     return (
         <form onSubmit={handleCreateTask} action="" className="form">
             <div className="formRow">
@@ -62,6 +80,7 @@ export function MainForm() {
                 label='Tarefa' 
                 placeholder='Digite o nome da tarefa'
                 ref={taskNameInput}
+                disabled={!!state.activeTask}
                 />
             </div>
 
@@ -76,7 +95,28 @@ export function MainForm() {
             )}
                     
             <div className="formRow">
-                <ActionButton icon={<PlayCircleIcon />} color='green' />
+                {!state.activeTask && (
+                    <ActionButton 
+                        aria-label='Iniciar nova tarefa'
+                        color='green' 
+                        icon={<PlayCircleIcon />}
+                        key='start'
+                        title='Iniciar nova tarefa'
+                        type='submit'
+                    />
+                )}
+                
+                {!!state.activeTask && (
+                    <ActionButton 
+                        aria-label='Interromper tarefa atual'
+                        color='red' 
+                        icon={<StopCircleIcon />}
+                        key='stop'
+                        onClick={handleInterruptTask}
+                        title='Interromper tarefa atual'
+                        type='button'
+                    />
+                )}
             </div>
         </form>
     )
