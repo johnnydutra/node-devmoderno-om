@@ -11,6 +11,7 @@ export class TimerWorkerManager {
         if (!instance) {
             instance = new TimerWorkerManager();
         }
+
         return instance;
     }
 
@@ -24,5 +25,6 @@ export class TimerWorkerManager {
 
     terminate() {
         this.worker.terminate();
+        instance = null;
     }
 }

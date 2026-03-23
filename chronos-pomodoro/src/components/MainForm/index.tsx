@@ -65,9 +65,9 @@ export function MainForm() {
             </div>
             
             {state.currentCycle > 0 && (
-            <div className="formRow">
-                <Cycles />
-            </div>
+                <div className="formRow">
+                    <Cycles />
+                </div>
             )}
                     
             <div className="formRow">
