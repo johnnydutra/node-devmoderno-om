@@ -44,7 +44,7 @@ export function Menu() {
 
             <RouterLink
                 className={styles.menuLink}
-                href='/history'
+                href='/historico'
                 title='Histórico'
                 aria-label='Ver histórico'
             >
@@ -53,7 +53,7 @@ export function Menu() {
 
             <RouterLink 
                 className={styles.menuLink} 
-                href='/settings'
+                href='/configuracoes'
                 title='Configurações'
                 aria-label='Acessar configurações'
             >
