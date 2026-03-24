@@ -33,8 +33,30 @@ export function taskReducer(state:TaskStateModel, action:TaskActionModel) {
                 })
             };
         }
+        case TaskActionsTypes.COMPLETE_TASK: {
+            return {
+                ...state,
+                activeTask: null,
+                secondsRemaining: 0,
+                formattedSecondsRemaining: '00:00',
+                tasks: state.tasks.map((task) => {
+                    if (state.activeTask?.id === task.id) {
+                        return { ...task, completeDate: Date.now() };
+                    }
+                    return task;
+                })
+            };
+        }
         case TaskActionsTypes.RESET_STATE: {
             return state;
+        }
+        case TaskActionsTypes.COUNTDOWN: {
+            const countdownSeconds = action.payload.secondsRemaining;
+            return {
+                ...state,
+                secondsRemaining: countdownSeconds,
+                formattedSecondsRemaining: getFormattedTime(countdownSeconds)
+            }
         }
     }
 

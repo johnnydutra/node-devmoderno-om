@@ -3,6 +3,7 @@ import { initialTaskState } from "./initialTaskState";
 import { TaskContext } from "./TaskContext";
 import { taskReducer } from "./taskReducer";
 import { TimerWorkerManager } from "../../workers/TimerWorkerManager";
+import { TaskActionsTypes } from "./taskActions";
 
 type TaskContextProviderProps = {
     children: React.ReactNode;
@@ -18,7 +19,13 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
         console.log(countdownSeconds);
 
         if (countdownSeconds <= 0) {
+            dispatch({ type: TaskActionsTypes.COMPLETE_TASK })
             worker.terminate()
+        } else {
+            dispatch({
+                type: TaskActionsTypes.COUNTDOWN,
+                payload: { secondsRemaining: countdownSeconds }
+            });
         }
     });
 
