@@ -1,0 +1,6 @@
+{
+  "workbench.editor.labelFormat": "short",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "explorer.compactFolders": false
+}
