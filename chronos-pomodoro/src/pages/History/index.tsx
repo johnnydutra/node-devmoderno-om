@@ -19,6 +19,10 @@ export function History() {
     const [confirmClearHistory, setConfirmClearHistory] = useState(false);
     const hasTasks = state.tasks.length > 0;
 
+    useEffect(() => {
+        document.title = 'Histórico de Tarefas | Chronos Pomodoro';
+    });
+
     const [ sortTasksOptions, setSortTasksOptions ] = useState<SortTasksOptions>(() => {
         return {
             tasks: sortTasks({ tasks: state.tasks }),
