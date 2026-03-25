@@ -6,8 +6,11 @@ import { InputField } from "../../components/InputField";
 import { MainTemplate } from "../../templates/MainTemplate";
 import { useRef } from "react";
 import { showMessage } from "../../adapters/showMessage";
+import { useTaskContext } from "../../contexts/TaskContext/useTaskContext";
+import { TaskActionsTypes } from "../../contexts/TaskContext/taskActions";
 
 export function Settings() {
+    const { dispatch } = useTaskContext();
     const workTimeInput = useRef<HTMLInputElement>(null);
     const shortBreakInput = useRef<HTMLInputElement>(null);
     const longBreakInput = useRef<HTMLInputElement>(null);
@@ -15,29 +18,41 @@ export function Settings() {
     function handleSaveSettings(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
+        const formErrors: string[] = [];
+
         const workTime = Number(workTimeInput.current?.value);
         const shortBreak = Number(shortBreakInput.current?.value);
         const longBreak = Number(longBreakInput.current?.value);
 
         if (isNaN(workTime) || isNaN(shortBreak) || isNaN(longBreak)) {
-            showMessage.error('Todos os campos devem ser números válidos.');
+            formErrors.push('Todos os campos devem ser números válidos.');
             return;
         }
 
         if (workTime <= 0 || workTime > 30) {
-            showMessage.error('Tempo de foco deve ser um número entre 1 e 30.');
+            formErrors.push('Tempo de foco deve ser um número entre 1 e 30.');
             return;
         }
 
         if (shortBreak <= 0 || shortBreak > 30) {
-            showMessage.error('Tempo de descanso curto deve ser um número entre 1 e 30.');
+            formErrors.push('Tempo de descanso curto deve ser um número entre 1 e 30.');
             return;
         }
 
         if (longBreak <= 0 || longBreak > 60) {
-            showMessage.error('Tempo de descanso longo deve ser um número entre 1 e 60.');
+            formErrors.push('Tempo de descanso longo deve ser um número entre 1 e 60.');
             return;
         }
+
+        if (formErrors.length > 0) {
+            formErrors.forEach(error => {
+                showMessage.error(error)
+            });
+            return
+        }
+
+        dispatch({ type: TaskActionsTypes.CHANGE_SETTINGS, payload: { workTime, shortBreak, longBreak } });
+        showMessage.success('Configurações salvas com sucesso!');
     }
 
     return (
