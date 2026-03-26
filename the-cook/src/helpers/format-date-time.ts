@@ -9,7 +9,7 @@ export function formatDateTime(rawDate: string): string {
   });
 }
 
-export function formatRelativeDate(rawDate: string): string {
+export function formatDateRelativeToNow(rawDate: string): string {
   const date = new Date(rawDate);
 
   return formatDistanceToNow(date, { locale: ptBR, addSuffix: true });
