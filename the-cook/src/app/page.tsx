@@ -1,4 +1,5 @@
 import { Container } from '@/components/Container';
+import { Header } from '@/components/Header';
 import { PostsList } from '@/components/PostsList';
 import { SpinLoader } from '@/components/SpinLoader';
 import clsx from 'clsx';
@@ -7,11 +8,7 @@ import { Suspense } from 'react';
 export default async function HomePage() {
   return (
     <Container>
-      <header>
-        <h1 className={clsx('text-6xl', 'font-bold', 'text-center', 'py-8')}>
-          HEADER PLACEHOLDER LALALALALALALALALALA
-        </h1>
-      </header>
+      <Header />
 
       <p className='text-justify py-'>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum maxime voluptas, vero voluptatem porro nulla atque,
@@ -23,9 +20,7 @@ export default async function HomePage() {
       </Suspense>
 
       <footer>
-        <p className={clsx('text-6xl', 'font-bold', 'text-center', 'py-8')}>
-          FOOTER PLACEHOLDER LALALALALALALALALALALALALA
-        </p>
+        <p className={clsx('text-6xl', 'font-bold', 'text-center', 'py-8')}>FOOTER PLACEHOLDER</p>
       </footer>
     </Container>
   );
