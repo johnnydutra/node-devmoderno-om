@@ -1,10 +1,11 @@
-import { Header } from "@/components/Header";
-import clsx from "clsx";
+import { Header } from '@/components/Header';
+import { SpinLoader } from '@/components/SpinLoader';
+import clsx from 'clsx';
 
 export default async function HomePage() {
   return (
     <div>
-      <Header />
+      <SpinLoader containerClassesToAdd={clsx('min-h-[500px]', 'bg-amber-500')} />
     </div>
   );
 }
