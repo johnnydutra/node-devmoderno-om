@@ -27,16 +27,21 @@ export default async function HomePage() {
             priority: true,
           }}
         />
+
         <div className='flex flex-col gap-4 sm:justify-center'>
           <time className='text-slate-600 block text-sm/tight' dateTime='2025-04-20'>
             20/04/2025 10:00
           </time>
-          <PostHeading url='#' as='h1'>
-            Heading heading heading heading
+
+          <PostHeading as='h1' url='#'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </PostHeading>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga pariatur dolorum mollitia deleniti eligendi ut
-          laborum architecto ullam obcaecati, laudantium beatae quidem? Assumenda in, architecto earum esse nulla
-          commodi soluta?
+
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas iusto modi magnam veniam. Iste,
+            temporibus repellat eligendi aperiam aut repellendus eos totam quam, ex dolores facilis itaque quas,
+            consequuntur laudantium!
+          </p>
         </div>
       </section>
 

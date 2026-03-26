@@ -10,12 +10,14 @@ type PostHeadingProps = {
 export function PostHeading({ children, url, as: Tag = 'h2' }: PostHeadingProps) {
   const tailwindClasses = {
     h1: clsx('text-2xl/tight font-extrabold sm:text-4xl'),
-    h2: clsx('text-2xl/tight font-extrabold sm:text-4xl'),
+    h2: clsx('text-2xl/tight font-bold'),
   };
 
   return (
     <Tag className={tailwindClasses[Tag]}>
-      <Link href={url}>{children}</Link>
+      <Link className='hover:text-slate-600 transition' href={url}>
+        {children}
+      </Link>
     </Tag>
   );
 }
