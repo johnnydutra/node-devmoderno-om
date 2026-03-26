@@ -2,7 +2,6 @@ import { postRepository } from '@/repositories/post';
 
 export async function PostsList() {
   const posts = await postRepository.findAll();
-  console.log(posts);
 
   return (
     <div>

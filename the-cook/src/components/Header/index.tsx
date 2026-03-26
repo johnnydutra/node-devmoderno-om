@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Link from 'next/link';
 
 export function Header() {
   const tailwindClasses = {
@@ -13,7 +14,7 @@ export function Header() {
   return (
     <header>
       <h1 className={tailwindClasses.h1}>
-        <a href='#'>Próximo Prato</a>
+        <Link href='#'>Próximo Prato</Link>
       </h1>
     </header>
   );
