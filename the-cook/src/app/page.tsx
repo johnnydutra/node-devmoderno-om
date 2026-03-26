@@ -5,7 +5,7 @@ import { Suspense } from 'react';
 
 export default async function HomePage() {
   return (
-    <div>
+    <div className={clsx('text-slate-900', 'bg-slate-300', 'min-h-screen')}>
       <header>
         <h1 className={clsx('text-6xl', 'font-bold', 'text-center', 'py-8')}>
           HEADER PLACEHOLDER LALALALALALALALALALA
