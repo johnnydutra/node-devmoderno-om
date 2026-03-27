@@ -3,6 +3,7 @@ import './globals.css';
 import { Container } from '@/components/Container';
 import { Header } from '@/components/Header';
 import clsx from 'clsx';
+import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: {
@@ -24,9 +25,7 @@ export default function RootLayout({
           <Header />
           <main>{children}</main>
 
-          <footer>
-            <p className={clsx('text-6xl', 'font-bold', 'text-center', 'py-8')}>FOOTER</p>
-          </footer>
+          <Footer />
         </Container>
       </body>
     </html>

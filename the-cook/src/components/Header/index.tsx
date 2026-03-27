@@ -14,7 +14,7 @@ export function Header() {
   return (
     <header>
       <h1 className={tailwindClasses.h1}>
-        <Link href='#'>Próximo Prato</Link>
+        <Link href='/'>Próximo Prato</Link>
       </h1>
     </header>
   );
