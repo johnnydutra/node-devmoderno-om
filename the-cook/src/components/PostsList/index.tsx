@@ -1,9 +1,9 @@
 import { PostCoverImage } from '../PostCoverImage';
 import { PostSummary } from '../PostSummary';
-import { findAllPublishedPosts } from '@/lib/post/queries';
+import { findAllPublishedPostsCached } from '@/lib/post/queries';
 
 export async function PostsList() {
-  const posts = await findAllPublishedPosts();
+  const posts = await findAllPublishedPostsCached();
 
   return (
     <section className='grid grid-cols-1 mb-16 gap-8 sm:grid-cols-2 lg:grid-cols-3'>
