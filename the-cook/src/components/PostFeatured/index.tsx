@@ -1,5 +1,6 @@
 import { PostCoverImage } from '../PostCoverImage';
 import { PostHeading } from '../PostHeading';
+import { PostSummary } from '../PostSummary';
 
 export function PostFeatured() {
   const slug = 'test';
@@ -20,21 +21,15 @@ export function PostFeatured() {
         }}
       />
 
-      <div className='flex flex-col gap-4 sm:justify-center'>
-        <time className='text-slate-600 block text-sm/tight' dateTime='2025-04-20'>
-          20/04/2025 10:00
-        </time>
-
-        <PostHeading as='h1' url={postLink}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </PostHeading>
-
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas iusto modi magnam veniam. Iste, temporibus
-          repellat eligendi aperiam aut repellendus eos totam quam, ex dolores facilis itaque quas, consequuntur
-          laudantium!
-        </p>
-      </div>
+      <PostSummary
+        createdAt={'2025-02-11T20:59:30'}
+        excerpt={
+          'Isso deixa o fluxo de trabalho mais natural, especialmente para quem já está acostumado com a estrutura de pastas e arquivos.'
+        }
+        postHeading='h2'
+        postLink={postLink}
+        title={'O papel do silêncio em uma vida criativa'}
+      />
     </section>
   );
 }
