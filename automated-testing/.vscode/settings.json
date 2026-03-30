@@ -1,0 +1,16 @@
+{
+  "workbench.editor.labelFormat": "short",
+  "workbench.editor.enablePreview": false,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "explorer.compactFolders": false,
+
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.runInTerminal": true,
+  "code-runner.ignoreSelection": true,
+  "code-runner.executorMap": {
+    "typescript": "clear; npx tsx"
+  },
+
+  "tailwindCSS.experimental.classRegex": [["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]]
+}
