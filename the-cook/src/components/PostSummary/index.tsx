@@ -1,6 +1,5 @@
-import { formatDateRelativeToNow, formatDateTime } from '@/helpers/format-date-time';
 import { PostHeading } from '../PostHeading';
-import { PostModel } from '@/models/post/post-model';
+import { PostDate } from '../PostDate';
 
 type PostSummaryProps = {
   postHeading: 'h1' | 'h2';
@@ -13,13 +12,7 @@ type PostSummaryProps = {
 export function PostSummary({ postHeading, postLink, createdAt, title, excerpt }: PostSummaryProps) {
   return (
     <div className='flex flex-col gap-4 sm:justify-center'>
-      <time
-        className='text-slate-600 block text-sm/tight'
-        dateTime={createdAt}
-        title={formatDateRelativeToNow(createdAt)}
-      >
-        {formatDateTime(createdAt)}
-      </time>
+      <PostDate dateTime={createdAt} />
       <PostHeading url={postLink} as={postHeading}>
         {title}
       </PostHeading>
