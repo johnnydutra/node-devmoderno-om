@@ -5,7 +5,7 @@ import { cache } from 'react';
 export const findAllPublishedPostsCached = cache(async () => await postRepository.findAllPublished());
 
 export const findPostBySlugCached = cache(async (slug: string) => {
-  const post = postRepository.findBySlug(slug).catch(() => undefined);
+  const post = await postRepository.findBySlug(slug).catch(() => undefined);
 
   if (!post) notFound();
 
