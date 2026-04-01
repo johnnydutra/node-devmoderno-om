@@ -10,10 +10,5 @@ export const drizzleDb = drizzle(sqliteDatabase, {
   schema: {
     posts: postsTable,
   },
-  logger: true,
+  logger: false,
 });
-
-(async () => {
-  const posts = await drizzleDb.select().from(postsTable);
-  console.log(posts);
-})();
